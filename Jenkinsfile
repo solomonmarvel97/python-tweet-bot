@@ -33,7 +33,7 @@ pipeline {
         
         stages("alaways") {
             steps {
-                echo 'Always run'
+                echo 'Always run this option here'
             }
         }
         
