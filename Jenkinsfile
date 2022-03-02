@@ -31,5 +31,11 @@ pipeline {
             }
         }
         
+        stages("alaways") {
+            steps {
+                echo 'Always run this'
+            }
+        }
+        
     }
 }
