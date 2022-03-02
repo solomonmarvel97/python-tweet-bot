@@ -1,41 +1,55 @@
 pipeline {
     agent any 
+    environment {
+        NEW_VERSION = '1.0.0'
+        SERVER_CREDENTIALS = credentials('')
+    }
     stages {
-        stages("checkout") {
+        stage("checkout") {
             steps {
                 echo 'checking out our app'
             }
         }
 
-        stages("build") {
+        stage("build") {
             steps {
+                echo "building the application"
+                echo "building version ${NEW_VERSION}"
                 echo 'building our application'
             }
         }
 
-        stages("test") {
+        stage("test") {
             steps {
                 echo 'testing our application'
             }
         }
 
-        stages("deploy") {
+        stage("deploy") {
             steps {
                 echo 'deploying our application'
             }
         }
 
-        stages("cleanup") {
+        stage("cleanup") {
             steps {
                 echo 'cleaning up our jenkins instance'
             }
         }
         
-        stages("alaways") {
+        stage("alaways") {
             steps {
                 echo 'Always run this option here'
             }
         }
         
+    }
+    post {
+        always {
+        }
+        success {
+        }
+        failure {
+        }
     }
 }
